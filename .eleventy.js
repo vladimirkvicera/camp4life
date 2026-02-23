@@ -16,6 +16,9 @@ module.exports = function(eleventyConfig) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     dataTemplateEngine: "njk",
+
+    // prefix cesty pro GitHub Pages (např. /camp4life/)
+    pathPrefix: process.env.ELEVENTY_PREFIX || "/",
   }
 
 };

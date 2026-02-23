@@ -31,6 +31,8 @@ jobs:
 
       - name: Build with Eleventy
         run: npm run build
+        env:
+          ELEVENTY_PREFIX: /camp4life/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
