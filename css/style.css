@@ -1,0 +1,401 @@
+html { box-sizing: border-box; }
+*, ::before, ::after { box-sizing: inherit; }
+
+:root {
+    --color-primary: rgb(69, 26, 98);
+    --color-secondary: rgb(113, 55, 150); 
+    --color-dark: rgb(27, 11, 38);
+    --color-light: #F0E5DE;
+    --color-turquoise:  rgb(138, 180, 178);
+    --font-base: "Quicksand", sans-serif;
+    --font-special: "Indie Flower", cursive;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-base);
+    font-size: 16px;
+    color: var(--color-dark);
+    background-color: var(--color-light);
+}
+
+h1, h2, h3 {
+    font-family: var(--font-special);
+    text-align: center;
+    color: var(--color-primary);
+}
+h1 {
+    font-size: 64px;
+    font-weight: 700;
+}
+h2 {
+    font-size: 36px;
+}
+
+  .main-title::after,
+  .main-subtitle::after {
+	content: "";
+	display: block;
+	width: 20%;
+	height: 4px;
+	margin: 5px auto;
+	background-color: var(--color-turquoise);
+}
+.main-title, .main-subtitle--form {
+    margin-top: 0;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.logo {
+    margin: 0 20px 20px 20px;
+    padding-top: 20px;
+}
+.menu {
+    display: flex;
+}
+.menu__item {
+    position: relative;
+}
+.menu__item:hover .dropdown__content {
+    display: block;
+}
+.menu__link {
+    display: inline-block;
+    padding: 20px;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-family: var(--font-base);
+    font-size: 18px;
+}
+.menu__link:hover, .menu__dropdown:hover .dropdown__button, .dropdown__link:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+.menu__dropdown {
+    float: left;
+    overflow: hidden;
+}
+.dropdown__button {
+    padding: 0;
+    border: none;
+    outline: none;
+    margin: 0; 
+}
+.dropdown__content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    background-color: var(--color-light);
+    top: 100%;
+    left: 0;
+}
+.dropdown__link {
+    float: none;
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-family: var(--font-special);
+    padding: 5px;
+    display: block;
+    text-align: left;
+}
+.dropdown__link:not(:last-child) {
+  border-bottom: 1px solid silver;
+}
+.menu__dropdown:hover .dropdown__content {
+    display: block;
+}
+.dropdown__button .fa-caret-down {
+    display: none;
+}
+
+
+.footer {
+    margin-top: 40px;
+    padding: 10px 0;
+    background-color: var(--color-dark);
+    text-align: center;
+    color: white;
+    margin-left: -20px;
+    margin-right: -20px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* homepage */
+.random-ref {
+    color: var(--color-primary);
+}
+
+.ref-tile {
+    display: block;
+    text-decoration: none;
+}
+.tile {
+    background-color: var(--color-turquoise);
+    border-radius: 50px;box-shadow: 0 4px 8px rgb(138, 180, 178);
+}
+    
+.tile-descr {
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+.tile__trip-title {
+    margin: 0;
+    font-size: 36px;
+}
+.tile__trip-text {
+    margin-bottom: 0;
+}
+.tile__img {
+    position: relative;
+    overflow: hidden;
+}
+.tile__act-img {
+    width: 100%;
+    border-radius: 0 0 50px 50px; 
+    display: block;
+    height: auto;
+    mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%) ;
+}
+.tiles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+@media (min-width: 768px) {
+    .tiles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        align-items: stretch;
+    }
+    .tile {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+}
+.tile--coming-soon {
+    position: relative;
+}
+
+.tile--coming-soon::after {
+    content: "Připravujeme...";
+    position: absolute;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+/* roadtrip 2021*/
+/* mapa a navigace  */
+.map {
+    background-color: white;
+    padding: 5px;
+    margin: 0;
+}
+.map__img {
+    width: 100%;
+    border: 4px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+.map__capt {
+    text-align: center;
+    font-size: 12px;
+}
+.menu-roadtrip {
+    background-color: var(--color-light);
+    margin: 0;
+    padding: 2px 2px 0 2px;
+}
+@media (max-width: 767px) {
+    .menu-roadtrip {
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .map {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+} 
+.menu-roadtrip__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.menu-roadtrip__item {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.menu-roadtrip__item:not(:last-child) {
+  border-bottom: 1px solid silver;
+}
+.menu-roadtrip__link {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-family: var(--font-special);
+    color: var(--color-secondary);
+}
+.menu-roadtrip__link:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+@media (min-width: 768px) {
+    .map-menu {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+} 
+/* jednotlivé zastávky */
+.stop {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+.stop .main-subtitle:not(:first-child) {
+    margin-top: 0;
+}
+
+.stop {
+    margin: 0 -20px 0 -20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.stop--color {
+    background-color: var(--color-light);
+}
+.stop__img {
+    max-width: 100%;
+    border: 4px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 767px) {
+    .stop__img--hidden {
+        display: none; 
+    }
+}
+@media (min-width: 768px) {
+    .stop__2act-pictures {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+    } 
+        .stop__img--hidden {
+        display: block;
+        }
+    
+   
+    .stop__2act-pictures .stop__img {
+        max-width: calc(50% - 10px);
+    }
+
+      .stop__text-picture {
+        overflow: auto;
+    }
+     .stop__text-picture .stop__img--left {
+        float: left;
+        max-width: 400px;
+        margin: 20px 30px 15px 0;
+    }
+      .stop__text-picture .stop__img--right {
+        float: right;
+        max-width: 400px;
+        margin: 20px 0 15px 30px;
+    }
+}
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--color-dark);
+    padding: 2px 6px;
+}
+
+.copy-btn:hover {
+    color: var(--color-primary);
+}
+/* konec stylu pro roadtrip 2021 */
+
+
+/* kontaktní formulář */
+.form {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-field {
+    margin-bottom: 10px;
+}
+.form__label {
+    display: block;
+    margin-bottom: 3px;
+}
+.form__input {
+    width: 100%;
+    border: 2px solid silver;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+.form__button {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-family: var(--font-base);
+}
+.form__button:hover {
+    background-color: var(--color-secondary);
+}
+/* style pro cestování ve Francii */
+.guide {
+    margin: 0 -20px 0 -20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.menu-roadtrip--guide {
+    margin-left: 20px;
+    margin-right: 20px;
+}
