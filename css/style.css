@@ -169,12 +169,14 @@ h2 {
 .tile__img {
     position: relative;
     overflow: hidden;
+    flex-grow: 1;
 }
 .tile__act-img {
     width: 100%;
-    border-radius: 0 0 50px 50px; 
+    border-radius: 0 0 50px 50px;
     display: block;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     mask-image: linear-gradient(to top, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%) ;
 }
 .tiles {
