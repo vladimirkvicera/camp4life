@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    {%- set _parts = page.url.split('/') -%}
+    {%- set _depth = _parts.length - 2 -%}
+    {%- set _root = '' -%}
+    {%- for i in range(_depth) -%}{%- set _root = _root + '../' -%}{%- endfor -%}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+    <link rel="stylesheet" href="{{ _root }}css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
 </head>
@@ -16,16 +20,16 @@
     <div class="container">
 
         <header class="header">
-            <a href="{{ '/' | url }}"><img class="logo" src="{{ '/images/logo.svg' | url }}" alt="logo Camp4life" width="100"></a>
+            <a href="{{ _root }}"><img class="logo" src="{{ _root }}images/logo.svg" alt="logo Camp4life" width="100"></a>
 
             <nav class="menu">
                 <div class="menu__item">
-                    <a class="menu__link" href="{{ '/' | url }}">Naše cesty</a>
+                    <a class="menu__link" href="{{ _root }}">Naše cesty</a>
                         <div class="menu__dropdown">
                             <button class="dropdown__button"><i class="fa fa-caret-down"></i></button>
                             <div class="dropdown__content">
-                                <a class="dropdown__link" href="#">Roadtrip 2019</a>
-                                <a class="dropdown__link" href="{{ '/roadtrips/roadtrip2021/' | url }}">Roadtrip 2021</a>
+                                <a class="dropdown__link" href="{{ _root }}roadtrips/roadtrip2019/">Roadtrip 2019</a>
+                                <a class="dropdown__link" href="{{ _root }}roadtrips/roadtrip2021/">Roadtrip 2021</a>
                                 <a class="dropdown__link" href="#">Roadtrip 2022</a>
                                 <a class="dropdown__link" href="#">Roadtrip 2023</a>
                                 <a class="dropdown__link" href="#">Roadtrip 2024</a>
@@ -33,11 +37,11 @@
                             </div>
                         </div>
                 </div>
-                    <a class="menu__link" href="{{ '/CestovaniVeFrancii/' | url }}">Cestování ve Francii</a>
-                <a class="menu__link" href="{{ '/napisnam/' | url }}">Napiš nám</a>
+                    <a class="menu__link" href="{{ _root }}CestovaniVeFrancii/">Cestování ve Francii</a>
+                <a class="menu__link" href="{{ _root }}napisnam/">Napiš nám</a>
             </nav>
         </header>
-        
+
         <main class="main">
 
         {{ content | safe }}
